@@ -1,0 +1,286 @@
+
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #222;
+}
+
+/* ===========================
+   SPLIT SCREEN LAYOUT
+=========================== */
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding: 40px 30px;
+}
+
+/* Left Section */
+.left {
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+/* Right Section */
+.right {
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #ffffff;
+}
+
+/* ===========================
+   PRODUCT IMAGE SECTION
+=========================== */
+
+.centered {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Main Product Image */
+.main-product-image {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Thumbnail Container */
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Product Thumbnails */
+.thumbnail {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.thumbnail:hover {
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+
+.thumbnail.active {
+    border: 2px solid #007bff;
+}
+
+/* ===========================
+   RIGHT SECTION
+=========================== */
+
+.sentiment-container {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 10px;
+}
+
+/* Sentiment Counters */
+.sentiment-stats {
+    margin-bottom: 20px;
+}
+
+.sentiment-stats p {
+    font-size: 19px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.sentiment-stats span {
+    font-weight: 500;
+}
+
+/* ===========================
+   REVIEW FORM
+=========================== */
+
+.review-form {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 16px;
+    resize: vertical;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0,123,255,0.15);
+}
+
+/* Submit Button */
+.submit-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 20px;
+    background-color: #f5f5f5;
+    color: #222;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e5e5e5;
+}
+
+/* ===========================
+   COMMENTS SECTION
+=========================== */
+
+.comments-section {
+    margin-top: 60px;
+    width: 100%;
+}
+
+.comment-item {
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    background-color: #ffffff;
+}
+
+.comment-item p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.comments {
+    text-decoration: underline;
+    text-underline-position: under;
+    cursor: pointer;
+}
+
+/* ===========================
+   TABLET RESPONSIVE
+=========================== */
+
+@media screen and (max-width: 992px) {
+
+    .split {
+        padding: 30px 20px;
+    }
+
+    .main-product-image {
+        height: 300px;
+    }
+
+    .sentiment-stats p {
+        font-size: 17px;
+    }
+
+    .thumbnail {
+        width: 65px;
+        height: 65px;
+    }
+
+}
+
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+
+@media screen and (max-width: 768px) {
+
+    .split {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 25px 20px;
+    }
+
+    .left {
+        min-height: 350px;
+    }
+
+    .right {
+        padding-top: 20px;
+    }
+
+    .centered {
+        max-width: 100%;
+    }
+
+    .main-product-image {
+        max-width: 350px;
+        height: 260px;
+    }
+
+    .thumbnail-container {
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+
+    .sentiment-container {
+        max-width: 100%;
+    }
+
+    .sentiment-stats p {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+
+    textarea {
+        height: 110px;
+    }
+
+    .comments-section {
+        margin-top: 35px;
+    }
+
+    .comment-item p {
+        font-size: 16px;
+    }
+
+}

@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/main.css') }}">
+
+    <title>Product Sentiment Analysis</title>
+</head>
+
+<body>
+
+    <!-- LEFT SIDE: PRODUCT -->
+    <div class="split left">
+        <div class="centered">
+
+            <!-- Main Product Image -->
+            <img
+                id="mainProductImage"
+                class="main-product-image"
+                src="{{ url_for('static', filename='products/prod1.jpg') }}"
+                alt="Product Image"
+            >
+
+    
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE: SENTIMENT ANALYSIS -->
+    <div class="split right">
+
+        <div class="sentiment-container">
+
+            <!-- Sentiment Counters -->
+            <div class="sentiment-stats">
+
+                <p>
+                    Positive Sentiments :
+                    <span>{{ data.positive }}</span>
+                </p>
+
+                <p>
+                    Negative Sentiments :
+                    <span>{{ data.negative }}</span>
+                </p>
+
+            </div>
+
+            <!-- Review Form -->
+            <form method="post" class="review-form">
+
+                <textarea
+                    name="text"
+                    placeholder="Write your review here..."
+                    required
+                ></textarea>
+
+                <input
+                    type="submit"
+                    value="Submit"
+                    class="submit-btn"
+                >
+
+            </form>
+
+            <!-- Existing Reviews -->
+            <div class="comments-section">
+
+                {% for review in data.reviews %}
+
+                <div class="comment-item">
+                    <p>{{ review }}</p>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Gallery Script -->
+    <script>
+        function changeImage(element) {
+
+            const mainImage =
+                document.getElementById("mainProductImage");
+
+            mainImage.src = element.src;
+
+            document.querySelectorAll(".thumbnail")
+                .forEach(img => {
+                    img.classList.remove("active");
+                });
+
+            element.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
